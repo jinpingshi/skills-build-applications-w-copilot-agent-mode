@@ -5,18 +5,18 @@ class Command(BaseCommand):
     help = 'Populate the octofit_db database with test data'
 
     def handle(self, *args, **options):
-        # 清空所有集合
+        # Clear all collections
         User.objects.all().delete()
         Team.objects.all().delete()
         Activity.objects.all().delete()
         Leaderboard.objects.all().delete()
         Workout.objects.all().delete()
 
-        # 创建队伍
+        # Create teams
         marvel = Team.objects.create(name='marvel')
         dc = Team.objects.create(name='dc')
 
-        # 创建用户（超级英雄）
+        # Create users (superheroes)
         users = [
             User(email='ironman@marvel.com', name='Iron Man', team='marvel'),
             User(email='captain@marvel.com', name='Captain America', team='marvel'),
@@ -27,7 +27,7 @@ class Command(BaseCommand):
         ]
         User.objects.bulk_create(users)
 
-        # 创建活动
+        # Create activities
         activities = [
             Activity(user='Iron Man', type='run', duration=30),
             Activity(user='Captain America', type='cycle', duration=45),
@@ -38,11 +38,11 @@ class Command(BaseCommand):
         ]
         Activity.objects.bulk_create(activities)
 
-        # 创建排行榜
+        # Create leaderboard
         Leaderboard.objects.create(team='marvel', points=100)
         Leaderboard.objects.create(team='dc', points=120)
 
-        # 创建锻炼
+        # Create workouts
         workouts = [
             Workout(name='Pushups', description='Do 20 pushups'),
             Workout(name='Running', description='Run for 30 minutes'),
@@ -50,4 +50,4 @@ class Command(BaseCommand):
         ]
         Workout.objects.bulk_create(workouts)
 
-        self.stdout.write(self.style.SUCCESS('octofit_db 已成功填充测试数据'))
+        self.stdout.write(self.style.SUCCESS('Successfully populated octofit_db with test data'))
