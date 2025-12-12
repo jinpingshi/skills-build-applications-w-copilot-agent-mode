@@ -13,7 +13,7 @@ class Command(BaseCommand):
         Workout.objects.all().delete()
 
         # 创建队伍
-        marvel = Team.objects.create(name='marvel')
+        Team.objects.create(name='marvel')
         Team.objects.create(name='dc')
 
         # 创建用户（超级英雄）
