@@ -33,7 +33,7 @@ const Teams = () => {
             </thead>
             <tbody>
               {teams.map((team, i) => (
-                <tr key={i}>
+                <tr key={team.id}>
                   <td>{i + 1}</td>
                   <td>{team.name}</td>
                   <td>{team.members && team.members.join(', ')}</td>

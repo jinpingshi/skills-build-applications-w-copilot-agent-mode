@@ -34,7 +34,7 @@ const Activities = () => {
             </thead>
             <tbody>
               {activities.map((a, i) => (
-                <tr key={i}>
+                <tr key={a.id}>
                   <td>{i + 1}</td>
                   <td>{a.user}</td>
                   <td>{a.type}</td>
