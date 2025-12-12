@@ -14,7 +14,7 @@ class Command(BaseCommand):
 
         # 创建队伍
         marvel = Team.objects.create(name='marvel')
-        dc = Team.objects.create(name='dc')
+        Team.objects.create(name='dc')
 
         # 创建用户（超级英雄）
         users = [
