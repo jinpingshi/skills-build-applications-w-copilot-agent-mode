@@ -34,7 +34,7 @@ const Workouts = () => {
             </thead>
             <tbody>
               {workouts.map((w, i) => (
-                <tr key={i}>
+                <tr key={w.id}>
                   <td>{i + 1}</td>
                   <td>{w.user}</td>
                   <td>{w.type}</td>
